@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      name="logo"
+      rel="icon"
+      type="image/svg+xml"
+      href="./src/assets/logo/logo.png"
+    />
+    <meta
+      name="title"
+      property="og:title"
+      content="Lendors - We are here to lend you with cars that are more secure and reliable on small price Give us your trust and gain a lot from use."
+    />
+    <meta
+      name="description"
+      property="og:description"
+      content="Lendors - We are here to lend you with cars that are more secure and reliable on small price Give us your trust and gain a lot from use. Our goal is to keep in touch with our clients on any issue they can come along with. Good service means business expansion."
+    />
+    <meta name="type" property="og:type" content="article" />
+    <meta
+      name="image"
+      property="og:image"
+      content="https://res.cloudinary.com/dkpaiyjv5/image/upload/v1668057170/jq6wkicrq1cdvqj1eoaj.jpg"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/favicon.png" />
+    <link rel="stylesheet" href="./src/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Lendors - Welcome</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      .loading-container {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        background: #000c21;
+        color: white;
+        font-size: larger;
+        letter-spacing: 10px;
+        flex-direction: column;
+        gap: 4em;
+      }
+      .loading-animation {
+        width: 10em;
+        height: 10em;
+        border-top: 4px red solid;
+        border-radius: 50%;
+        animation: rotate 1s linear infinite;
+      }
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .hide {
+        display: hidden;
+      }
+      .body {
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body class="body">
+    <div class="loading-container">
+      <div class="loading-animation"></div>
+      <h1 class="loading">LOADING</h1>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+  <script>
+    const global = globalThis;
+    window.addEventListener("load", () => {
+      document.querySelector(".loading-container")?.classList.add("hidden");
+      document.querySelector("body")?.classList.remove("body");
+    });
+  </script>
+</html>
