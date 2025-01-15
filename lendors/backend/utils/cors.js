@@ -1,7 +1,7 @@
 const whitelist = [
   "https://lendors.vercel.app",
   "http://localhost:5173",
-  "http://localhost:5000"
+  "http://localhost:8080",
 ];
 const corsOptions = {
   origin: (origin, callback) => {
@@ -14,7 +14,7 @@ const corsOptions = {
   methods: ["GET", "PUT", "POST", "PATCH", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization", "x-csrf-token"],
   credentials: true,
-  exposedHeaders: ["*", "Authorization"]
+  exposedHeaders: ["*", "Authorization"],
 };
 
 module.exports = corsOptions;

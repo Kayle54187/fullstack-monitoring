@@ -12,14 +12,15 @@ if (
   DATABASE_USERNAME = process.env.DATABASE_USERNAME;
   DATABASE_PASSWORD = process.env.DATABASE_PASSWORD;
   DATABASE_NAME = process.env.DATABASE_NAME;
-  DATABASE_HOST = process.env.DATABASE_HOST;
+  // DATABASE_HOST = process.env.DATABASE_HOST;
+  DATABASE_HOST = "localhost:3306";
 } else {
   const { DATABASE_URL } = process.env;
   const dbUrl = url.parse(DATABASE_URL);
   DATABASE_USERNAME = dbUrl.auth.substr(0, dbUrl.auth.indexOf(":"));
   DATABASE_PASSWORD = dbUrl.auth.substr(
     dbUrl.auth.indexOf(":") + 1,
-    dbUrl.auth.length
+    dbUrl.auth.length,
   );
   DATABASE_NAME = dbUrl.path.slice(1);
   DATABASE_HOST = dbUrl.hostname;
@@ -28,24 +29,27 @@ if (
 
 module.exports = {
   development: {
-    username: DATABASE_USERNAME,
-    password: DATABASE_PASSWORD,
-    database: DATABASE_NAME,
-    host: DATABASE_HOST,
-    dialect: "postgres"
+    username: "root",
+    password: "freeatlast",
+    database: "lendors",
+    host: "localhost",
+    port: "3306",
+    dialect: "mysql",
   },
   test: {
-    username: DATABASE_USERNAME,
-    password: DATABASE_PASSWORD,
-    database: DATABASE_NAME,
-    host: DATABASE_HOST,
-    dialect: "postgres"
+    username: "root",
+    password: "freeatlast",
+    database: "lendors",
+    host: "localhost",
+    port: "3306",
+    dialect: "mysql",
   },
   production: {
-    username: DATABASE_USERNAME,
-    password: DATABASE_PASSWORD,
-    database: DATABASE_NAME,
-    host: DATABASE_HOST,
-    dialect: "postgres"
-  }
+    username: "root",
+    password: "freeatlast",
+    database: "lendors",
+    host: "localhost",
+    port: "3306",
+    dialect: "mysql",
+  },
 };

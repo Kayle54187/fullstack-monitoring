@@ -8,7 +8,7 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     return await queryInterface.bulkInsert("Users", [
       {
-        id: v4(),
+        id: 1,
         names: "Patrick NDAYAMBAJE",
         email: "patrickndayambaje4@gmail.com",
         role: "admin",
@@ -16,11 +16,11 @@ module.exports = {
         telephone: "+250790603658",
         createdAt: new Date(),
         updatedAt: new Date(),
-        password: await bcryptjs.hash(process.env.MY_PASSWORD, 8)
-      }
+        password: await bcryptjs.hash(process.env.MY_PASSWORD, 8),
+      },
     ]);
   },
   down: (queryInterface, Sequelize) => {
     return queryInterface.bulkDelete("Users", null, {});
-  }
+  },
 };

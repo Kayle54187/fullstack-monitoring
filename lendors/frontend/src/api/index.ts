@@ -3,7 +3,7 @@ import axios from "axios";
 const BACKEND_URL: string = "https://lendor.onrender.com";
 
 const api = axios.create({
-  baseURL: BACKEND_URL
+  baseURL: "http://localhost:8080",
 });
 
 export default api;

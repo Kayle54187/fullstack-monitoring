@@ -9,9 +9,9 @@ const transporter = nodemailer.createTransport({
   port: 465,
   secure: false,
   auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASSWORD
-  }
+    user: "progprojects1@gmail.com",
+    pass: "wexpnbzfsxgjwsjc",
+  },
 });
 
 transporter.verify(function (error, success) {
@@ -22,21 +22,21 @@ transporter.verify(function (error, success) {
   }
 });
 
-exports.mailTo = async (email, text, html, subject,request) => {
+exports.mailTo = async (email, text, html, subject, request) => {
   try {
     const info = await transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: email,
       subject,
       text,
-      html
+      html,
     });
     console.log(info.messageId);
     console.log("Testing email functionality");
     return {
       message: "Email sent successfully",
       emailId: info.messageId,
-      status: true
+      status: true,
     };
   } catch (error) {
     console.log(error);
