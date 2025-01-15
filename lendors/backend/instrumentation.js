@@ -97,12 +97,31 @@ const sdk = new NodeSDK({
 // Initialize the SDK
 sdk.start();
 
+// Example log statement
+const logger = loggerProvider.getLogger('default');
+logger.emit({
+  severityText: 'INFO',
+  body: 'SDK initialized and started',
+});
+
 // Graceful shutdown
 process.on("SIGTERM", () => {
   sdk
     .shutdown()
-    .then(() => console.log("SDK shut down successfully"))
-    .catch((error) => console.error("Error shutting down SDK", error))
+    .then(() => {
+      logger.emit({
+        severityText: 'INFO',
+        body: 'SDK shut down successfully',
+      });
+      console.log("SDK shut down successfully");
+    })
+    .catch((error) => {
+      logger.emit({
+        severityText: 'ERROR',
+        body: `Error shutting down SDK: ${error}`,
+      });
+      console.error("Error shutting down SDK", error);
+    })
     .finally(() => process.exit(0));
 });
 
